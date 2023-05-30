@@ -1,0 +1,178 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" class="img-thumbnail" href="{% static 'assets/images/logo/astu-logo.png' %}" type="image/icon type">
+	<title>Anti-Corruption</title>
+
+	<!-- Main Styles -->
+	<!-- <link rel="stylesheet" href="assets/styles/style-horizontal.min.css"> -->
+	<link rel="stylesheet" href="{% static 'assets/styles/style-horizontal.min.css' %}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Material Design Icon -->
+	<link rel="stylesheet" href="{% static 'assets/fonts/material-design/css/materialdesignicons.css' %}">
+
+	<!-- mCustomScrollbar
+	<link rel="stylesheet" href="{% static 'assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css' %}"> -->
+
+	<!-- Waves Effect -->
+	<link rel="stylesheet" href="{% static 'assets/plugin/waves/waves.min.css' %}">
+
+	<!-- Sweet Alert -->
+	<link rel="stylesheet" href="{% static 'assets/plugin/sweet-alert/sweetalert.css' %}">
+	
+	<link rel="stylesheet" href="{% static 'assets/search.css' %}">
+	
+</head>
+
+<body>
+<header class="fixed-header">
+	<div class="header-top">
+		<div class="container">
+			<div class="pull-left">
+				<a href="/" class="logo"><img src="{% static 'assets/images/logo/astu-logo.png' %}" />&nbsp;Manage Complient</a>
+			</div>
+			
+			<!-- /.pull-left -->
+			<div class="pull-right">
+				<div class="ico-item hidden-on-desktop">
+					<button type="button" class="menu-button js__menu_button fa fa-bars waves-effect waves-light"></button>
+				</div>
+				<!-- /.ico-item hidden-on-desktop -->
+				
+				<!-- /.ico-item -->
+				
+				<!-- /.ico-item -->
+				
+				<!-- /.ico-item -->
+				
+				<!-- /.ico-item -->
+			</div>
+			<!-- /.pull-right -->
+		</div>
+		<!-- /.container -->
+	</div>
+	<!-- /.header-top -->
+	<nav class="nav-horizontal" style="color: aquamarine">
+		<button type="button" class="menu-close hidden-on-desktop js__close_menu">
+			<i class="fa fa-times"></i><span>CLOSE</span></button>
+		<div class="container">
+			
+			<ul class="menu">
+					<li class="has-sub">
+						<a href="/newcomplen/"><i class="ico mdi mdi-creation"></i><span>New Complien</span></a>
+						
+					</li>
+					<li>
+						
+					</li>
+					
+					
+			</ul>
+			<!-- /.menu -->
+		</div>
+		<!-- /.container -->
+	</nav>
+	<!-- /.nav-horizontal -->
+</header>
+<!-- /.fixed-header -->
+
+<div id="wrapper">
+	<div class="main-content container">
+		<div class="row small-spacing">
+			
+					<!-- /.dropdown js__dropdown -->
+					<!-- <div id="donut-morris-chart" class="morris-chart" style="height: 240px"></div> -->
+					<h2>
+
+						
+						 
+						<div class="container-fluid" >
+							<div class="text-center">
+<!-- <span>hellow</span> -->
+								{% include 'folder/message.html' %}
+
+						
+					<div class="container ">
+
+						<div class="row d-flex justify-content-center align-items-center">
+		
+						  <div class="col-md-8">
+		
+							<div class="search">
+								<form method="POST" action="/search/" enctype="multipart/form-data">
+									{% csrf_token %}
+									<i class="fa fa-search"></i>
+									<input name="search" type="text" class="form-control" placeholder="Enter your Pin code" style="font-size: medium;">
+									<button style="font-size: medium;" class="btn btn-primary">Search</button>
+							  
+								</form>
+							 
+							</div>
+							
+						  </div>
+						  
+						</div>
+					</div>  
+					{% include 'folder/result.html' %}
+					<!-- /#donut-morris-chart.morris-chart -->
+				
+				</div>
+				<!-- /.box-content -->
+			</div>
+			<!-- /.col-lg-6 col-xs-12 -->
+		</div>
+		<!-- /.row -->
+
+		
+					</div>
+					<!-- /.table-responsive -->
+				</div>
+				<!-- /.box-content -->
+			</div>
+			<!-- /.col-lg-6 col-xs-12 -->
+		</div>
+		<!-- /.row -->		
+		<footer class="footer">
+			<ul class="list-inline">
+				<li>2023 © ASTU BADA.</li>
+				<li><a href="#">Privacy</a></li>
+				<li><a href="#">Terms</a></li>
+				<li><a href="#">Help</a></li>
+			</ul>
+		</footer>
+	</div>
+	<!-- /.main-content -->
+</div><!--/#wrapper -->
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="assets/script/html5shiv.min.js"></script>
+		<script src="assets/script/respond.min.js"></script>
+	<![endif]-->
+	<!-- 
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="{% static 'assets/scripts/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/scripts/modernizr.min.js' %}"></script>
+	<script src="{% static 'assets/plugin/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+	<script src="{% static 'assets/plugin/nprogress/nprogress.js' %}"></script>
+	<script src="{% static 'assets/plugin/sweet-alert/sweetalert.min.js' %}"></script>
+	<script src="{% static 'assets/plugin/waves/waves.min.js' %}"></script>
+
+	<script src="{% static 'assets/scripts/main.min.js' %}"></script>
+	<script src="{% static 'assets/scripts/horizontal-menu.min.js' %}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

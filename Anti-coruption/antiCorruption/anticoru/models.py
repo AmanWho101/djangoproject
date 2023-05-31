@@ -10,7 +10,7 @@ class RandomUser(models.Model):
         return "%s" %(self.aid)
     
     class Meta:
-        db_table="anonUser"
+        db_table="anonuser"
 
 class Employee(models.Model):
     eid = models.AutoField(primary_key = True)

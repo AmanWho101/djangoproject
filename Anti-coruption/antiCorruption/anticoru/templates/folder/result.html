@@ -1,282 +1,208 @@
 {% if result %} 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<br>
+  <br>
+  <div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Questions</th>
+      <th scope="col" colspan="2">Respones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in result %}
+    <tr>
+      <th scope="row" >1</th>
+      <td >ምን ዓይነት ድርጊት ተከሰተ:</td>
+      <td colspan="2" style="width: 10cm;"><textarea name="" id="" cols="40" rows="10" disabled>{{item.m_ctype}}</textarea></td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >2</th>
+      <td >የተጠርጣሪ ሙሉ ስም:</td>
+      <td colspan="2" style="width: 10cm;">
+        {{item.m_sntitle}}</td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >3</th>
+      <td >የተጠረጠረ ሰው የሥራ ማዕረግ:</td>
+      <td colspan="2" style="width: 10cm;">
+        {{item.m_sname}}</td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >4</th>
+      <td >የተጠረጠረ ሰው አድራሻ:</td>
+      <td colspan="2" style="width: 10cm;"><textarea name="" id="" cols="40" rows="1" disabled>{{item.m_snadress}}</textarea></td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >5</th>
+      <td >የተጠረጠረ ሰው ዕድሜ:</td>
+      <td colspan="2" style="width: 10cm;">
+        {{item.m_snage}}
+      </td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >6</th>
+      <td >ሙስና የተፈጸመበት ድርጅት ስም:</td>
+      <td colspan="2" style="width: 10cm;">
+        <textarea name="" id="" cols="40" rows="10" disabled>
+          {{item.m_ccorg}}</textarea></td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >7</th>
+      <td >ደርጊቱ የተፈፀመበት ቦታ:</td>
+      <td colspan="2" style="width: 10cm;">
+        <textarea name="" id="" cols="40" rows="10" disabled>
+          {{item.m_cplace}}</textarea></td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >8</th>
+      <td >ደርጊቱ የተፈፀመበት ሰዓት:</td>
+      <td colspan="2" style="width: 10cm;">
+        <textarea name="" id="" cols="40" rows="10" disabled>
+          {{item.m_ctime}}</textarea></td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >9</th>
+      <td >በድርጊቱ የተጠቀሙ ሰዎች:</td>
+      <td colspan="2" style="width: 10cm;"><textarea name="" id="" cols="40" rows="10" disabled>
+        {{item.m_bperson}}</textarea></td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >10</th>
+      <td >በድርጊቱ የተጎዱ ሰዎች:</td>
+      <td colspan="2">
+        <textarea name="" id="" cols="40" rows="10" disabled>
+          {{item.m_nbperson}}</textarea></td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >11</th>
+      <td >ጉዳቱ በገንዘብ ሲገመት:</td>
+      <td colspan="2" style="width: 10cm;">
+        <textarea name="" id="" cols="40" rows="10" disabled>
+          {{item.m_damege_em}}</textarea></td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >12</th>
+      <td >ተጠርጣሪው በገንዘብ ያገኘው ጠቀም:</td>
+      <td colspan="2" style="width: 10cm;"><textarea name="" id="" cols="40" rows="10" disabled>{{item.m_sbmoney}}</textarea></td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >13</th>
+      <td >ብደርጊቱ የተደርገ ዉል ካለ:</td>
+      <td colspan="2" style="width: 10cm;">
+        <textarea name="" id="" cols="40" rows="10" disabled>{{item.m_psigned}}</textarea></td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >14</th>
+      <td >በደርጊቱ የተደርገ ብደር:</td>
+      <td colspan="2" style="width: 10cm;"><textarea name="" id="" cols="40" rows="10" disabled>
+        {{item.m_loan}}</textarea></td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >15</th>
+      <td >በደርጊቱ የተደርገ ቀረጥ:</td>
+      <td colspan="2" style="width: 10cm;">
+        <textarea name="" id="" cols="40" rows="10" disabled>
+          {{item.m_tax}}</textarea></td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >16</th>
+      <td >Uploaded File:</td>
+      <td colspan="2" style="width: 10cm;">
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+            <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
+          </svg>
+          </a>Donwload File
+        
+        {{item.m_file}} 
+        </td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >17</th>
+      <td >Audio File:</td>
+      <td colspan="2" style="width: 10cm;">
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+            <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
+          </svg>
+          </a>Donwload Audio
+        
+        {{item.m_audio}} 
+      </td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >18</th>
+      <td >video File:</td>
+      <td colspan="2" style="width: 10cm;">
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+            <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
+          </svg>
+          </a>Donwload Video
+        
+        {{item.m_video}} 
+      </td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >19</th>
+      <td >Image File:td>
+      <td colspan="2" style="width: 10cm;">
+        <a href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
+            <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
+          </svg>
+          </a>Donwload Image
+        
+        {{item.m_image}} 
+      </td>
+      
+    </tr>
+    <tr>
+      <th scope="row" >20</th>
+      <td >የድርጊቱ ጊዜ እና ቀን:</td>
+      <td colspan="2" style="width: 10cm;">
+        {{item.m_timestamp}} 
+      </td>
+      
+    </tr>
+
+    {% endfor %}
+  </tbody>
+</table>
+  <br>
+  <br>
+
 <br>
 <button type="button" class="btn btn-success"> if any Respones</button>
 <br>
 <br>
 
-<div class="container">
-  <div class="row">
-    <div class="col-1">
-      #
-    </div>
-    <div class="col">
-      Questions
-    </div>
-    <div class="col-6">
-      Respones by the Complient
-    </div>
-    
-  </div>
-  <!-- {{result}} -->
-  <!-- {{result}} -->
-  <br>
-  <br>
-{% for item in result %}
-<hr>
-<div class="row">
-  <div class="col-1">
-         1
-  </div>
-  <div class="col-md-6">
-    <label class="col-form-label">ምን ዓይነት ድርጊት ተከሰተ:</label>
-  </div>
-  <div class="col-md-3">
-    <label class="col-form-label">{{item.m_ctype}}</label> 
-    
-  </div>
-  
-</div>
 
-<hr>
-<div class="row">
-  <div class="col-1">
-         2
-  </div>
-  <div class="col">
-    <label class="col-form-label">የተጠርጣሪ ሙሉ ስም:</label>
-  </div>
-  <div class="col-6">
-    {{item.m_sntitle}} 
-  </div>
-</div><hr>
-<div class="row">
-  <div class="col-1">
-         3
-  </div>
-  <div class="col">
-    <label class="col-form-label">የተጠረጠረ ሰው የሥራ ማዕረግ:</label>
-  </div>
-  <div class="col-6">
-    {{item.m_sname}} 
-  </div>
-</div><hr>
-<div class="row">
-  <div class="col-1">
-         4
-  </div>
-  <div class="col">
-    <label class="col-form-label">የተጠረጠረ ሰው አድራሻ:</label>
-  </div>
-  <div class="col-6">
-    {{item.m_snadress}} 
-  </div>
-</div><hr>
-<div class="row">
-  <div class="col-1">
-         5
-  </div>
-  <div class="col">
-    <label class="col-form-label">የተጠረጠረ ሰው ዕድሜ:</label>
-  </div>
-  <div class="col-6">
-    {{item.m_snage}} 
-  </div>
-</div><hr>
-<div class="row">
-  <div class="col-1">
-         6
-  </div>
-  <div class="col">
-    <label class="col-form-label">ሙስና የተፈጸመበት ድርጅት ስም:</label>
-  </div>
-  <div class="col-6">
-    {{item.m_ccorg}} 
-  </div>
-</div><hr>
-<div class="row">
-  <div class="col-1">
-         7
-  </div>
-  <div class="col">
-    <label class="col-form-label">ደርጊቱ የተፈፀመበት ቦታ:</label>
-  </div>
-  <div class="col-6">
-    {{item.m_cplace}} 
-  </div>
-</div><hr>
-<div class="row">
-  <div class="col-1">
-         8
-  </div>
-  <div class="col">
-    <label class="col-form-label">ደርጊቱ የተፈፀመበት ሰዓት: </label>
-  </div>
-  <div class="col-6">
-    {{item.m_ctime}} 
-  </div>
-</div><hr>
-<div class="row">
-  <div class="col-1">
-         9
-  </div>
-  <div class="col">
-    <label class="col-form-label">በድርጊቱ የተጠቀሙ ሰዎች:</label>
-  </div>
-  <div class="col-6">
-    {{item.m_bperson}} 
-  </div>
-</div><hr>
-<div class="row">
-  <div class="col-1">
-         10
-  </div>
-  <div class="col">
-    <label class="col-form-label">በድርጊቱ የተጎዱ ሰዎች:</label>
-  </div>
-  <div class="col-6">
-    {{item.m_nbperson}} 
-  </div>
-</div><hr>
-<div class="row">
-  <div class="col-1">
-         11
-  </div>
-  <div class="col">
-    <label class="col-form-label">ጉዳቱ በገንዘብ ሲገመት:</label>
-  </div>
-  <div class="col-6">
-    {{item.m_damege_em}} 
-  </div>
-</div><hr>
-<div class="row">
-  <div class="col-1">
-         12
-  </div>
-  <div class="col">
-    <label class="col-form-label">ተጠርጣሪው በገንዘብ ያገኘው ጠቀም:</label>
-  </div>
-  <div class="col-6">
-    {{item.m_sbmoney}} 
-  </div>
-</div><hr>
-<div class="row">
-  <div class="col-1">
-         13
-  </div>
-  <div class="col">
-    <label class="col-form-label">ብደርጊቱ የተደርገ ዉል ካለ:</label>
-  </div>
-  <div class="col-6">
-    {{item.m_psigned}} 
-  </div><hr>
-</div><div class="row">
-  <div class="col-1">
-         14
-  </div>
-  <div class="col">
-    <label class="col-form-label">በደርጊቱ የተደርገ ብደር:</label>
-  </div>
-  <div class="col-6">
-    {{item.m_loan}} 
-  </div>
-</div><hr>
-<div class="row">
-  <div class="col-1">
-         15
-  </div>
-  <div class="col">
-    <label class="col-form-label">በደርጊቱ የተደርገ ቀረጥ:</label>
-  </div>
-  <div class="col-6">
-    {{item.m_tax}} 
-  </div>
-</div><hr>
-<div class="row">
-  <div class="col-1">
-         16
-  </div>
-  <div class="col">
-    <label class="col-form-label">Uploaded File:</label>
-  </div>
-  <div class="col-6">
-    <a href="#">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
-        <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
-      </svg>
-      </a>Donwload File
-    
-    {{item.m_file}} 
-  </div>
-</div><hr>
-<div class="row">
-  <div class="col-1">
-         17
-  </div>
-  <div class="col">
-    <label class="col-form-label">Audio File:</label>
-  </div>
-  <div class="col-6">
-    <a href="#">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
-        <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
-      </svg>
-      </a>Donwload Audio
-    
-    {{item.m_audio}} 
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-1">
-         18
-  </div>
-  <div class="col">
-    <label class="col-form-label">video File:</label>
-  </div>
-  <div class="col-6">
-    <a href="#">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
-        <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
-      </svg>
-      </a>Donwload Video
-    
-    {{item.m_video}} 
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-1">
-         19
-  </div>
-  <div class="col">
-    <label class="col-form-label">Image File:</label>
-  </div>
-  <div class="col-6">
-    <a href="#">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-arrow-down-fill" viewBox="0 0 16 16">
-        <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708z"/>
-      </svg>
-      </a>Donwload Image
-    
-    {{item.m_image}} 
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="col-1">
-         20
-  </div>
-  <div class="col">
-    <label class="col-form-label">ምን ዓይነት ድርጊት ተከሰተ:</label>
-  </div>
-  <div class="col-6">
-    
-    {{item.m_timestamp}} 
-  </div>
-</div>
-{% endfor %}
+  
+
 </div>
 
 {% endif %} 

@@ -2,15 +2,15 @@ from django.shortcuts import render,redirect
 from anticoru.models import RandomUser,Employee,MessageUser,Result
 import random
 from django.contrib import messages
+
 # Create your views here.
 
 # def search_r(request, id):
 #     print(id)
 #     return render(id,'index.html')
 
-
 def index(request):
-    print(request)
+    # print(request)
     return render(request,'index.html')
 
 def complen(request):
@@ -19,6 +19,8 @@ def complen(request):
 def search(request):
     # global test 
     # test = 0
+    result = ''
+    results = ''
     if request.method == 'POST':
         key = request.POST['search']
         # print(key)
@@ -33,19 +35,21 @@ def search(request):
                 results = RandomUser.objects.get(complaint_key = key)
                 # print(key)
                 result = MessageUser.objects.all().filter(aid_id = results)
-                print(result)
+                # print(result)
             else:
                 messages.success(request, 'no data have been found')
         else:
             messages.success(request, 'please enter a data to search')
             
-    # print(test)
+    # print(result)
 
-    return render(request,'index.html',{'result':result})
+    if len(result) != 0:
         
-        
+        return render(request,'index.html',{'result':result})
     
     
+    return render(request,'index.html',{'result':''})
+   
     
 def formsave(request):
     if request.method == 'POST':

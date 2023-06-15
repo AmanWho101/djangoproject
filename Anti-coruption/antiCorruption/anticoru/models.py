@@ -7,7 +7,7 @@ class RandomUser(models.Model):
     complaint_key = models.IntegerField()
 
     def __self__(self):
-        return "%s" %(self.aid)
+        return "%s" %(self.complaint_key)
     
     class Meta:
         db_table="anonuser"
@@ -55,7 +55,11 @@ class MessageUser(models.Model):
     
 
     def __self__(self):
-        return "%s" %(self.mid)
+        # return "%s" %(self.mid)
+        return "%s (%s)" % (
+            self.name,
+            ", ".join(aid.aid for aid in self.aid.all()),
+        )
     
     class Meta:
         db_table="message"
@@ -72,7 +76,11 @@ class Result(models.Model):
     rstatus_bar = models.CharField(max_length = 255)
 
     def __self__(self):
-        return "%s" %(self.rid)
+        return "%s (%s)" % (
+            self.name,
+            ", ".join(aid.aid for aid in self.aid.all()),
+            ", ".join(mid.mid for mid in self.mid.all()),
+        )
 
     class Meta:
         db_table="result"

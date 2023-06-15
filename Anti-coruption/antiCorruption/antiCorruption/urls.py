@@ -19,6 +19,9 @@ from django.urls import path
 from django.urls.conf import include
 
 urlpatterns = [
+    path("",include('anticoru.urls')),
     path("admin/", admin.site.urls),
-    path("",include('anticoru.urls'))
+    # path('head',include('head.urls')),
+    # path('receiver',include('receiver.urls')),
+    
 ]

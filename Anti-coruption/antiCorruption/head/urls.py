@@ -4,7 +4,9 @@ from head import views
 
 
 urlpatterns = [
-    path('',views.index,name='home'),
+    path('',views.index,name='home_head'),
+    path('Viewajax/',views.Viewjson,name='Viewajax'),
+    
     path('details/<int:id>/',views.show,name='details')
     
 ]

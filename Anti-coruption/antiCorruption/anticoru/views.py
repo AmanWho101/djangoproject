@@ -87,3 +87,7 @@ def formsave(request):
         messages.success(request, value )
         
     return redirect('home')
+
+def loginhead(request):
+    print('head')
+    return redirect('home_head')

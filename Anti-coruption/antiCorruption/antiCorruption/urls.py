@@ -17,12 +17,21 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
+from antiCorruption import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path("accounts/", include("django.contrib.auth.urls")),
     path("",include('anticoru.urls')),
     
-    path('head/',include('head.urls')),
-    path('receiver/',include('receiver.urls')),
+    path('head/',include('head.urls'),name='head'),
+    path('receiver/',include('receiver.urls'),name='receiver'),
+    path('auth/',views.index,name='auth')
     
+]
+
+# Add Django site authentication urls (for login, logout, password management)
+
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls'),name='login'),
 ]

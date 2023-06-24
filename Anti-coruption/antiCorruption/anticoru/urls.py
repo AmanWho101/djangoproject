@@ -10,9 +10,14 @@ urlpatterns = [
     # path('search/<id>',views.search_r,name='search_r'),
     path('result/',views.index,name='search'),
     
+    # login
+
+    path('login', views.loginhead,name='login'),
+
+
     path('newcomplen/',views.complen,name='complainform'),
-    re_path('form',views.formsave),
-    path('search/',views.search),
+    path('form',views.formsave,name="form"),
+    path('search/',views.search,name="search"),
     re_path(r'^admin/$',views.index,name='index'),#(?P<poll_id>\d+),
     
     

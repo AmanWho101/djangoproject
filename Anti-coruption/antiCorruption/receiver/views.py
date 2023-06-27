@@ -10,7 +10,7 @@ from django.views.generic.edit import CreateView
 
 def index(request):
     if request.user.is_authenticated:
-        if request.user.username == 'receiver':
+        if request.user.account.role == 'RECEIVER':
             result = MessageUser.objects.order_by('-m_timestamp').select_related('aid').filter()
             res_Arr = []
             for res in result:
@@ -23,11 +23,10 @@ def index(request):
 
 
 def show(request,id):
-    details = MessageUser.objects.order_by('-m_timestamp').select_related('aid').filter(mid = id)
+    if request.user.is_authenticated:
+        if request.user.account.role == 'RECEIVER':
+            details = MessageUser.objects.order_by('-m_timestamp').select_related('aid').filter(mid = id)
     
-    return render(request,'receiver/index.html',{'details':details})
-
-def logform(request):
-    
-    print('hello')
-    return render(request,'auth/login.html',{'result':'aaa'}) 
+            return render(request,'receiver/index.html',{'details':details})
+        return redirect('/auth')        
+    return redirect('login')

@@ -1,6 +1,17 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
+
+class Account(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    role = models.CharField(
+        max_length=10,
+        choices=[('HEAD','HEAD'),('RECEIVER','RECEIVER')]
+    )
+    def __str__(self):
+        return self.user.username
+
+    
 
 class RandomUser(models.Model):
     aid = models.AutoField(primary_key = True)
@@ -63,10 +74,10 @@ class MessageUser(models.Model):
     m_psigned = models.CharField(max_length=255)
     m_loan = models.CharField(max_length=255)
     m_tax = models.CharField(max_length=255)
-    m_file = models.CharField(max_length=255)
-    m_audio = models.CharField(max_length=255)
-    m_video = models.CharField(max_length=255)
-    m_image = models.CharField(max_length=255)
+    m_file = models.FileField(upload_to='documents/%Y/%m/%d')
+    m_audio = models.FileField(upload_to='documents/%Y/%m/%d')
+    m_video = models.FileField(upload_to='documents/%Y/%m/%d')
+    m_image = models.FileField(upload_to='documents/%Y/%m/%d')
     m_timestamp = models.DateTimeField(auto_now_add=True)
     
     def to_json(self):

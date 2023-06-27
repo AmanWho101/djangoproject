@@ -27,12 +27,20 @@ SECRET_KEY = "django-insecure-_y49r8yvti8q7pe0%92-#c8%^_2wm4j@&%py*)!lv$g$o@g7+*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1'
+  ]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -44,6 +52,7 @@ INSTALLED_APPS = [
     "receiver",
 ]
 LOGIN_REDIRECT_URL = 'auth'
+# AUTH_USER_MODEL = 'anticoru.Account'
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

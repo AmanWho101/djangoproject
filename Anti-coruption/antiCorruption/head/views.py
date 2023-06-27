@@ -12,7 +12,7 @@ def index_head(request):
     
     
     if request.user.is_authenticated:
-        if request.user.username == 'head':
+        if request.user.account.role == 'HEAD':
             result = MessageUser.objects.order_by('-m_timestamp').select_related('aid').filter()
             res_Arr = []
             for res in result:
@@ -29,7 +29,7 @@ def index_head(request):
 def show_head(request,id):
     if request.user.is_authenticated:
         
-        if request.user.username == 'head':
+        if request.user.account.role == 'HEAD':
             details = MessageUser.objects.order_by('-m_timestamp').select_related('aid').filter(mid = id)
 
             return render(request,'head/index.html',{'details':details})

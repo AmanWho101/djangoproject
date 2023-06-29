@@ -29,10 +29,11 @@ def download_a(request, id):
    
     path = MessageUser.objects.get(mid = id)
     path = str(path.m_audio)
+    print(path)
     file_path = os.path.join(settings.MEDIA_ROOT, path)
     if os.path.exists(file_path):
         with open(file_path, 'rb') as fh:
-            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response = HttpResponse(fh.read(), content_type="audio/*")
             response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
             return response
             return 
@@ -50,7 +51,6 @@ def download_v(request, id):
             return 
     raise Http404
 def download_i(request, id):
-   
     path = MessageUser.objects.get(mid = id)
     path = str(path.m_image)
     file_path = os.path.join(settings.MEDIA_ROOT, path)
@@ -111,31 +111,31 @@ def search(request):
         
     #     rands = random.randrange(111111, 999999, 6)
     #     # print(request.FILES['audio'])
-    #     RandomUser.objects.create(complaint_key = rands)
-    #     fkanon = RandomUser.objects.get(complaint_key = rands)
-    #     MessageUser.objects.create(
-    #         aid = fkanon ,
-    #         m_ctype = request.POST['ctype'] ,
-    #         m_sname  = request.POST['sname'] ,
-    #         m_sntitle = request.POST['sntitle'] ,
-    #         m_snadress = request.POST['snaddress'] ,
-    #         m_snage  = request.POST['snage'] ,
-    #         m_ccorg  = request.POST['ccorg'] ,
-    #         m_cplace  = request.POST['cplace'] ,
-    #         m_ctime  = request.POST['ctime'] ,
-    #         m_bperson = request.POST['bperson'] ,
-    #         m_nbperson = request.POST['nbperson'] ,
-    #         m_damege_em= request.POST['damage_em'] ,
-    #         m_sbmoney = request.POST['sbmoney'] ,
-    #         m_psigned = request.POST['psigned'] ,
-    #         m_loan  = request.POST['loan'] ,
-    #         m_tax  = request.POST['tax'] ,
-    #         m_file = request.FILES['file'] ,
-    #         # m_audio  = request.FILES['audio'] ,
-    #         # m_video  = request.FILES['video'] ,
-    #         # m_image  = request.FILES['image'] ,
+        # RandomUser.objects.create(complaint_key = rands)
+        # fkanon = RandomUser.objects.get(complaint_key = rands)
+        # MessageUser.objects.create(
+        #     aid = fkanon ,
+        #     m_ctype = request.POST['ctype'] ,
+        #     m_sname  = request.POST['sname'] ,
+        #     m_sntitle = request.POST['sntitle'] ,
+        #     m_snadress = request.POST['snaddress'] ,
+        #     m_snage  = request.POST['snage'] ,
+        #     m_ccorg  = request.POST['ccorg'] ,
+        #     m_cplace  = request.POST['cplace'] ,
+        #     m_ctime  = request.POST['ctime'] ,
+        #     m_bperson = request.POST['bperson'] ,
+        #     m_nbperson = request.POST['nbperson'] ,
+        #     m_damege_em= request.POST['damage_em'] ,
+        #     m_sbmoney = request.POST['sbmoney'] ,
+        #     m_psigned = request.POST['psigned'] ,
+        #     m_loan  = request.POST['loan'] ,
+        #     m_tax  = request.POST['tax'] ,
+        #     m_file = request.FILES['file'] ,
+        #     # m_audio  = request.FILES['audio'] ,
+        #     # m_video  = request.FILES['video'] ,
+        #     # m_image  = request.FILES['image'] ,
             
-    #     )
+        # )
     #     # if request.POST['file']:
     #     #     print(request.POST['audio'])
     #     #     pass
@@ -147,277 +147,36 @@ def search(request):
  
 def formsave(request):
     if request.method == 'POST':
-        
+        value = ''
         rands = random.randrange(111111, 999999, 6)
-        
         RandomUser.objects.create(complaint_key = rands)
         fkanon = RandomUser.objects.get(complaint_key = rands)
-        test = request.FILES['audio'] if not 'audio' in request.FILES else False
-        print(test)
-        if request.FILES['file'] if 'file' in request.FILES else False:
-            if not request.FILES['image'] if 'image' in request.FILES else False:
-                if not request.FILES['audio'] if 'audio' in request.FILES else False:
-                    if not request.FILES['video'] if 'video' in request.FILES else False:
-                        MessageUser.objects.create(
-                        aid = fkanon ,
-                        m_ctype = request.POST['ctype'] ,
-                        m_sname  = request.POST['sname'] ,
-                        m_sntitle = request.POST['sntitle'] ,
-                        m_snadress = request.POST['snaddress'] ,
-                        m_snage  = request.POST['snage'] ,
-                        m_ccorg  = request.POST['ccorg'] ,
-                        m_cplace  = request.POST['cplace'] ,
-                        m_ctime  = request.POST['ctime'] ,
-                        m_bperson = request.POST['bperson'] ,
-                        m_nbperson = request.POST['nbperson'] ,
-                        m_damege_em= request.POST['damage_em'] ,
-                        m_sbmoney = request.POST['sbmoney'] ,
-                        m_psigned = request.POST['psigned'] ,
-                        m_loan  = request.POST['loan'] ,
-                        m_tax  = request.POST['tax'] ,
-                        m_file = isset(request.FILES['file']) ,
-                        )
-        elif request.FILES['audio'] if 'audio' in request.FILES else False:
-            if not request.FILES['file'] if 'file' in request.FILES else False:
-                if not request.FILES['image'] if 'image' in request.FILES else False:
-                    if not request.FILES['video'] if 'video' in request.FILES else False:
-                        MessageUser.objects.create(
-                        aid = fkanon ,
-                        m_ctype = request.POST['ctype'] ,
-                        m_sname  = request.POST['sname'] ,
-                        m_sntitle = request.POST['sntitle'] ,
-                        m_snadress = request.POST['snaddress'] ,
-                        m_snage  = request.POST['snage'] ,
-                        m_ccorg  = request.POST['ccorg'] ,
-                        m_cplace  = request.POST['cplace'] ,
-                        m_ctime  = request.POST['ctime'] ,
-                        m_bperson = request.POST['bperson'] ,
-                        m_nbperson = request.POST['nbperson'] ,
-                        m_damege_em= request.POST['damage_em'] ,
-                        m_sbmoney = request.POST['sbmoney'] ,
-                        m_psigned = request.POST['psigned'] ,
-                        m_loan  = request.POST['loan'] ,
-                        m_tax  = request.POST['tax'] ,
-                        m_audio  = request.FILES['audio'] ,
-                        )
-        elif request.FILES['video'] if 'video' in request.FILES else False:
-            print('video1')
-            if not request.FILES['audio'] if not 'audio' in request.FILES else False:
-                print('video2')
-                if not request.FILES['file'] if 'file' in request.FILES else False:
-                    print('video3')
-                    if not request.FILES['image'] if 'image' in request.FILES else False:
-                        print('test')
-                        MessageUser.objects.create(
-                        aid = fkanon ,
-                        m_ctype = request.POST['ctype'] ,
-                        m_sname  = request.POST['sname'] ,
-                        m_sntitle = request.POST['sntitle'] ,
-                        m_snadress = request.POST['snaddress'] ,
-                        m_snage  = request.POST['snage'] ,
-                        m_ccorg  = request.POST['ccorg'] ,
-                        m_cplace  = request.POST['cplace'] ,
-                        m_ctime  = request.POST['ctime'] ,
-                        m_bperson = request.POST['bperson'] ,
-                        m_nbperson = request.POST['nbperson'] ,
-                        m_damege_em= request.POST['damage_em'] ,
-                        m_sbmoney = request.POST['sbmoney'] ,
-                        m_psigned = request.POST['psigned'] ,
-                        m_loan  = request.POST['loan'] ,
-                        m_tax  = request.POST['tax'] ,
-                        m_video  = request.FILES['video'] ,
-                        )
-        elif request.FILES['image'] if 'image' in request.FILES else False:
-            if not request.FILES['file'] if 'file' in request.FILES else False:
-                if not request.FILES['audio'] if 'audio' in request.FILES else False:
-                    if not request.FILES['video'] if 'video' in request.FILES else False:
-                        MessageUser.objects.create(aid = fkanon ,
-                        m_ctype = request.POST['ctype'] ,
-                        m_sname  = request.POST['sname'] ,
-                        m_sntitle = request.POST['sntitle'] ,
-                        m_snadress = request.POST['snaddress'] ,
-                        m_snage  = request.POST['snage'] ,
-                        m_ccorg  = request.POST['ccorg'] ,
-                        m_cplace  = request.POST['cplace'] ,
-                        m_ctime  = request.POST['ctime'] ,
-                        m_bperson = request.POST['bperson'] ,
-                        m_nbperson = request.POST['nbperson'] ,
-                        m_damege_em= request.POST['damage_em'] ,
-                        m_sbmoney = request.POST['sbmoney'] ,
-                        m_psigned = request.POST['psigned'] ,
-                        m_loan  = request.POST['loan'] ,
-                        m_tax  = request.POST['tax'] ,
-                        m_image  = request.FILES['image'] ,
-                        )
-        elif request.FILES['file'] if 'file' in request.FILES else False & request.FILES['audio'] if 'audio' in request.FILES else False:
-            if not request.FILES['image'] if 'image' in request.FILES else False:
-                if not request.FILES['video'] if 'video' in request.FILES else False:
-                    MessageUser.objects.create(
-                    aid = fkanon ,
-                    m_ctype = request.POST['ctype'] ,
-                    m_sname  = request.POST['sname'] ,
-                    m_sntitle = request.POST['sntitle'] ,
-                    m_snadress = request.POST['snaddress'] ,
-                    m_snage  = request.POST['snage'] ,
-                    m_ccorg  = request.POST['ccorg'] ,
-                    m_cplace  = request.POST['cplace'] ,
-                    m_ctime  = request.POST['ctime'] ,
-                    m_bperson = request.POST['bperson'] ,
-                    m_nbperson = request.POST['nbperson'] ,
-                    m_damege_em= request.POST['damage_em'] ,
-                    m_sbmoney = request.POST['sbmoney'] ,
-                    m_psigned = request.POST['psigned'] ,
-                    m_loan  = request.POST['loan'] ,
-                    m_tax  = request.POST['tax'] ,
-                    m_file = request.FILES['file'] ,
-                    m_audio  = request.FILES['audio'] ,
-                    )
-        elif request.FILES['file'] if 'file' in request.FILES else False & request.FILES['video'] if 'video' in request.FILES else False:
-            if not request.FILES['image'] if 'image' in request.FILES else False:
-                if not request.FILES['audio'] if 'audio' in request.FILES else False:
-                    MessageUser.objects.create(
-                    aid = fkanon ,
-                    m_ctype = request.POST['ctype'] ,
-                    m_sname  = request.POST['sname'] ,
-                    m_sntitle = request.POST['sntitle'] ,
-                    m_snadress = request.POST['snaddress'] ,
-                    m_snage  = request.POST['snage'] ,
-                    m_ccorg  = request.POST['ccorg'] ,
-                    m_cplace  = request.POST['cplace'] ,
-                    m_ctime  = request.POST['ctime'] ,
-                    m_bperson = request.POST['bperson'] ,
-                    m_nbperson = request.POST['nbperson'] ,
-                    m_damege_em= request.POST['damage_em'] ,
-                    m_sbmoney = request.POST['sbmoney'] ,
-                    m_psigned = request.POST['psigned'] ,
-                    m_loan  = request.POST['loan'] ,
-                    m_tax  = request.POST['tax'] ,
-                    m_file = request.FILES['file'] ,
-                    m_video  = request.FILES['video'] ,
-                    )
-        elif request.FILES['file'] if 'file' in request.FILES else False & request.FILES['image'] if 'image' in request.FILES else False:
-            if not request.FILES['audio'] if 'audio' in request.FILES else False:
-                if not request.FILES['video'] if 'video' in request.FILES else False:
-                    MessageUser.objects.create(
-                    aid = fkanon ,
-                    m_ctype = request.POST['ctype'] ,
-                    m_sname  = request.POST['sname'] ,
-                    m_sntitle = request.POST['sntitle'] ,
-                    m_snadress = request.POST['snaddress'] ,
-                    m_snage  = request.POST['snage'] ,
-                    m_ccorg  = request.POST['ccorg'] ,
-                    m_cplace  = request.POST['cplace'] ,
-                    m_ctime  = request.POST['ctime'] ,
-                    m_bperson = request.POST['bperson'] ,
-                    m_nbperson = request.POST['nbperson'] ,
-                    m_damege_em= request.POST['damage_em'] ,
-                    m_sbmoney = request.POST['sbmoney'] ,
-                    m_psigned = request.POST['psigned'] ,
-                    m_loan  = request.POST['loan'] ,
-                    m_tax  = request.POST['tax'] ,
-                    m_file = request.FILES['file'] ,
-                    m_image  = request.FILES['image'] ,
-
-                    )
-        elif request.FILES['audio'] if 'audio' in request.FILES else False & request.FILES['video'] if 'video' in request.FILES else False:
-            if not request.FILES['image'] if 'image' in request.FILES else False:
-                if not request.FILES['file'] if 'file' in request.FILES else False:
-                    MessageUser.objects.create(
-                    aid = fkanon ,
-                    m_ctype = request.POST['ctype'] ,
-                    m_sname  = request.POST['sname'] ,
-                    m_sntitle = request.POST['sntitle'] ,
-                    m_snadress = request.POST['snaddress'] ,
-                    m_snage  = request.POST['snage'] ,
-                    m_ccorg  = request.POST['ccorg'] ,
-                    m_cplace  = request.POST['cplace'] ,
-                    m_ctime  = request.POST['ctime'] ,
-                    m_bperson = request.POST['bperson'] ,
-                    m_nbperson = request.POST['nbperson'] ,
-                    m_damege_em= request.POST['damage_em'] ,
-                    m_sbmoney = request.POST['sbmoney'] ,
-                    m_psigned = request.POST['psigned'] ,
-                    m_loan  = request.POST['loan'] ,
-                    m_tax  = request.POST['tax'] ,
-                    m_audio  = request.FILES['audio'] ,
-                    m_video  = request.FILES['video'] ,
-
-                    )
-        elif request.FILES['audio'] if 'audio' in request.FILES else False & request.FILES['image'] if 'image' in request.FILES else False:
-            if not request.FILES['video'] if 'video' in request.FILES else False:
-                if not request.FILES['file'] if 'file' in request.FILES else False:
-                    MessageUser.objects.create(
-                    aid = fkanon ,
-                    m_ctype = request.POST['ctype'] ,
-                    m_sname  = request.POST['sname'] ,
-                    m_sntitle = request.POST['sntitle'] ,
-                    m_snadress = request.POST['snaddress'] ,
-                    m_snage  = request.POST['snage'] ,
-                    m_ccorg  = request.POST['ccorg'] ,
-                    m_cplace  = request.POST['cplace'] ,
-                    m_ctime  = request.POST['ctime'] ,
-                    m_bperson = request.POST['bperson'] ,
-                    m_nbperson = request.POST['nbperson'] ,
-                    m_damege_em= request.POST['damage_em'] ,
-                    m_sbmoney = request.POST['sbmoney'] ,
-                    m_psigned = request.POST['psigned'] ,
-                    m_loan  = request.POST['loan'] ,
-                    m_tax  = request.POST['tax'] ,
-
-                    m_audio  = request.FILES['audio'] ,
-
-                    m_image  = request.FILES['image'] ,
-
-                    )
-        elif request.FILES['image'] if 'image' in request.FILES else False & request.FILES['video'] if 'video' in request.FILES else False:
-            if not request.FILES['file'] if 'file' in request.FILES else False:
-                if not request.FILES['audio'] if 'audio' in request.FILES else False:
-                    MessageUser.objects.create(
-                    aid = fkanon ,
-                    m_ctype = request.POST['ctype'] ,
-                    m_sname  = request.POST['sname'] ,
-                    m_sntitle = request.POST['sntitle'] ,
-                    m_snadress = request.POST['snaddress'] ,
-                    m_snage  = request.POST['snage'] ,
-                    m_ccorg  = request.POST['ccorg'] ,
-                    m_cplace  = request.POST['cplace'] ,
-                    m_ctime  = request.POST['ctime'] ,
-                    m_bperson = request.POST['bperson'] ,
-                    m_nbperson = request.POST['nbperson'] ,
-                    m_damege_em= request.POST['damage_em'] ,
-                    m_sbmoney = request.POST['sbmoney'] ,
-                    m_psigned = request.POST['psigned'] ,
-                    m_loan  = request.POST['loan'] ,
-                    m_tax  = request.POST['tax'] ,
-                    m_video  = request.FILES['video'] ,
-                    m_image  = request.FILES['image'] ,
-                    
-                       )
-        else:
-            MessageUser.objects.create(
-                    aid = fkanon ,
-                    m_ctype = request.POST['ctype'] ,
-                    m_sname  = request.POST['sname'] ,
-                    m_sntitle = request.POST['sntitle'] ,
-                    m_snadress = request.POST['snaddress'] ,
-                    m_snage  = request.POST['snage'] ,
-                    m_ccorg  = request.POST['ccorg'] ,
-                    m_cplace  = request.POST['cplace'] ,
-                    m_ctime  = request.POST['ctime'] ,
-                    m_bperson = request.POST['bperson'] ,
-                    m_nbperson = request.POST['nbperson'] ,
-                    m_damege_em= request.POST['damage_em'] ,
-                    m_sbmoney = request.POST['sbmoney'] ,
-                    m_psigned = request.POST['psigned'] ,
-                    m_loan  = request.POST['loan'] ,
-                    m_tax  = request.POST['tax'] ,
-                       )
-
         value = str(rands) + ' ይሄን ሚስተር ቁጠር በመያዝ ጠቆማዎ ምን ላይ አንደደረሰ መከታተል የቸላሉ::'
-     
+        resu = MessageUser.objects.create(
+        aid = fkanon ,
+        m_ctype = request.POST['ctype'] ,
+        m_sname  = request.POST['sname'] ,
+        m_sntitle = request.POST['sntitle'] ,
+        m_snadress = request.POST['snaddress'] ,
+        m_snage  = request.POST['snage'] ,
+        m_ccorg  = request.POST['ccorg'] ,
+        m_cplace  = request.POST['cplace'] ,
+        m_ctime  = request.POST['ctime'] ,
+        m_bperson = request.POST['bperson'] ,
+        m_nbperson = request.POST['nbperson'] ,
+        m_damege_em= request.POST['damage_em'] ,
+        m_sbmoney = request.POST['sbmoney'] ,
+        m_psigned = request.POST['psigned'] ,
+        m_loan  = request.POST['loan'] ,
+        m_tax  = request.POST['tax'] ,
+        m_file = request.FILES['file'] if 'file' in request.FILES else False ,
+        m_audio  = request.FILES['audio'] if 'audio' in request.FILES else False ,
+        m_video  = request.FILES['video'] if 'video' in request.FILES else False ,
+        m_image  = request.FILES['image'] if 'image' in request.FILES else False ,
+        )
+        if not resu:
+            value = 'እባኮትን ዳታዉን በስርአት ያስገቡ'
         messages.success(request, value )
         
     return redirect('home')
-def loginhead(request):
-    print('head')
-    return redirect('home_head')
+

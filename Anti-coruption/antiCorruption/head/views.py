@@ -16,7 +16,8 @@ def index_head(request):
             result = MessageUser.objects.order_by('-m_timestamp').select_related('aid').filter()
             res_Arr = []
             for res in result:
-                res_Arr.append(res.to_json())
+                json_docs = [json.dumps(doc, default=json_util.default) for doc in res.to_json()]
+                res_Arr.append(json_docs)
                 data = {'result':res_Arr}
                 test = JsonResponse(data)
             return render(request,'head/index.html',{'result':result})
